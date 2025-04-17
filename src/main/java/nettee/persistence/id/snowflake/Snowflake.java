@@ -43,7 +43,7 @@ public final class Snowflake {
         // 0000 ... 0000 0000 0000 0000 결괏값
         if (timestamp == lastTimestamp) {
             sequence++;
-            sequence = (sequence + 1) & (SEQUENCE_MASK);
+            sequence = sequence & (SEQUENCE_MASK);
             if(timestamp == 0) { //overflow
                 timestamp = tilNextMillis(lastTimestamp);
             }
